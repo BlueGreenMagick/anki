@@ -138,7 +138,7 @@ class WebContent:
           corresponding web export:
           
           > from aqt import mw
-          > mw.addonManager.setWebExports(__name__, r"web/.*(css|js)")
+          > mw.addonManager.setWebExports(__name__, r"web(\/|\\).*\.(css|js)")
           
           Then append the subpaths to the corresponding web_content fields
           within a function subscribing to gui_hooks.webview_will_set_content:
