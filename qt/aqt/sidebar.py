@@ -149,6 +149,7 @@ class NewSidebarTreeView(SidebarTreeViewBase):
                 return self.mw.col.decks.rem(did, True)
 
             def on_done(fut: Future):
+                self.mw.requireReset(reason=ResetReason.BrowserDeleteDeck, context=self)
                 self.browser.search()
                 self.browser.model.endReset()
                 self.browser.maybeRefreshSidebar()
