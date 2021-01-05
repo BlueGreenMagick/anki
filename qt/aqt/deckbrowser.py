@@ -299,6 +299,7 @@ class DeckBrowser:
 
     def _delete(self, did: int) -> None:
         if self.ask_delete_deck(did):
+<<<<<<< HEAD
 
             def do_delete():
                 return self.mw.col.decks.rem(did, True)
@@ -309,6 +310,13 @@ class DeckBrowser:
 
             self.mw.checkpoint(tr(TR.DECKS_DELETE_DECK))
             self.mw.taskman.with_progress(do_delete, on_done)
+=======
+            self.mw.checkpoint(tr(TR.DECKS_DELETE_DECK))
+            self.mw.progress.start()
+            self.mw.col.decks.rem(did, True)
+            self.mw.progress.finish()
+            self.show()
+>>>>>>> seperate ask_delete_deck and _delete method
 
     # Top buttons
     ######################################################################
